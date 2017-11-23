@@ -1,0 +1,19 @@
+/* app css stylesheet */
+.center-block{
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	width: 600px;
+}
+
+.img{
+	float:left; clear: both; max-width:200px
+}
+
+.small-img{
+	max-width: 200px;
+}
+
+.event-info{
+	float:left; margin-left: 20px;
+}

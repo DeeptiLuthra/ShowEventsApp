@@ -1,0 +1,27 @@
+<div ng-init="FindMe()" class="center-block">
+	<div class="text-center" style="font-size: 30px;" ng-show="eventList.length > 0">Events</div>
+	<div ng-repeat="event in eventList" ng-click="GetSelectedEventData(event.Id)" class="row" style="border: 1px; border-color: red; border-style: solid;">
+		<div class="col-sm-4">
+			<img ng-src="{{event.ImageUrl}}" class="small-img"/>
+		</div>
+		<div class="col-sm-offset-2 col-sm-3">
+			<span style="font-size: 14px; font-weight: bold;" ng-bind="event.Title"></span><br/>
+			<span ng-bind="GetDisplayDateFromIso(event.DateTime)"></span><br/>
+			<span ng-bind="event.Location"></span>
+		</div>
+	</div>
+</div>
+<script type="text/ng-template" id="EventDetailsDialog.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Event details: <b>{{selectedEventData.Title}}</b></h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+    	<img ng-src="{{selectedEventData.ImageUrl}}" style="max-height:300px; max-width:300px;">
+        <div>Date time: <span ng-bind="GetDisplayDateFromIso(selectedEventData.DateTime)"></span></div>
+        <div>Location: <span ng-bind="selectedEventData.Location"></span></div>
+        <div>Available seats: <span ng-bind="selectedEventData.AvailableSeats"></span></div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$close()">Close</button>
+    </div>
+</script>
